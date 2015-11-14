@@ -93,6 +93,7 @@ class WordPress_Sniffs_VIP_RestrictedFunctionsSniff extends WordPress_Sniffs_Fun
 				'message' => '%s is prohibited, please use wpcom_vip_get_term_by() instead.',
 				'functions' => array(
 					'get_term_by',
+					'get_category_by_slug',
 				),
 			),
 

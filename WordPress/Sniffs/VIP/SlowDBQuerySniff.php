@@ -34,14 +34,21 @@ class WordPress_Sniffs_VIP_SlowDBQuerySniff extends WordPress_AbstractArrayAssig
 	 */
 	public function getGroups() {
 		return array(
-			'slow_db_query' => array(
+			'probable_slow_db_query' => array(
+				'type'    => 'error',
+				'message' => 'Detected usage of %s, most Likely a slow query, please refactor',
+				'keys'    => array(
+					'meta_value',
+					'category__not_in',
+					'tag__not_in',
+				),
+			),
+			'potential_slow_db_query' => array(
 				'type'    => 'warning',
-				'message' => 'Detected usage of %s, possible slow query.',
+				'message' => 'Detected usage of %s, potentially a slow query.',
 				'keys'    => array(
 					'tax_query',
 					'meta_query',
-					'meta_key',
-					'meta_value',
 				),
 			),
 		);
